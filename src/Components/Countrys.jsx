@@ -3,8 +3,7 @@ import Country from './Country';
 import '../index.css'
 const Countrys = () => {
     const [countrys, setCountrys] = useState([]);
-    const [visitedCountry, setVisitedCountry] = useState([]);
-    
+    const [getVisitedCountry, setVisitedCountry] = useState([]);
     useEffect(() => {
         const loadCountrys = async () => {
             const res = await fetch('https://restcountries.com/v3.1/all');
@@ -14,26 +13,24 @@ const Countrys = () => {
         loadCountrys()
 
     }, []);
-    const handleVisitedCountry = country => {
-        const newVisited = [...visitedCountry, country];
-       setVisitedCountry(newVisited)
-      }
+    const handleVisitedCuntry = country => {
+        const getCountry = [...getVisitedCountry, country];
+        setVisitedCountry(getCountry)
+    }
     return (
         <div>
             <h3>Example of Country {countrys.length}</h3>
-            <h4>Visited Countrys { visitedCountry.length}</h4>
-            <div>
-                <ul>
-                    {
-                        visitedCountry.map(country => <li key={country.cca2}>{ country.name.common}</li>)
-                    }
-                </ul>
-            </div>
+            <h3>Visited Country:{ getVisitedCountry.length}</h3>
+            <ul>
+                {getVisitedCountry.map(country => <li key={country.cca3}>
+                    {country.name.common}
+                </li>)}
+            </ul>
             <div className='responsive'>
                 {
                     countrys.map(country => <Country
                         props={country}
-                        handleVisitedCountry={()=>handleVisitedCountry(country)}
+                        handleVisitedCuntry={handleVisitedCuntry}
                         key={country.cca3}
                     ></Country>)
                 }
