@@ -4,6 +4,7 @@ import '../index.css'
 const Countrys = () => {
     const [countrys, setCountrys] = useState([]);
     const [getVisitedCountry, setVisitedCountry] = useState([]);
+    const [getFlag, setFlag] = useState([]);
     useEffect(() => {
         const loadCountrys = async () => {
             const res = await fetch('https://restcountries.com/v3.1/all');
@@ -17,10 +18,19 @@ const Countrys = () => {
         const getCountry = [...getVisitedCountry, country];
         setVisitedCountry(getCountry)
     }
+    const handleFlag = flag => {
+        const newFlag = [...getFlag, flag];
+        setFlag(newFlag);
+    }
     return (
         <div>
             <h3>Example of Country {countrys.length}</h3>
-            <h3>Visited Country:{ getVisitedCountry.length}</h3>
+            <div >
+                {
+                    getFlag.map((flags, idx) => <img src={flags} key={idx}></img>)
+                }
+            </div>
+            <h3>Visited Country: {getVisitedCountry.length}</h3>
             <ul>
                 {getVisitedCountry.map(country => <li key={country.cca3}>
                     {country.name.common}
@@ -31,6 +41,7 @@ const Countrys = () => {
                     countrys.map(country => <Country
                         props={country}
                         handleVisitedCuntry={handleVisitedCuntry}
+                        handleFlag={handleFlag}
                         key={country.cca3}
                     ></Country>)
                 }
