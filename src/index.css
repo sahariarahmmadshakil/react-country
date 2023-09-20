@@ -24,7 +24,7 @@ body {
 .box {
   margin: 20px;
   padding: 20px;
-  background-color: #21354761;
+ background-color: #ebeeef;
   border: 1px solid;
   border-radius: 10px;
 }
@@ -37,12 +37,13 @@ h1 {
   line-height: 1.1;
 }
 .btn{
-  border: 1px solid #000000;
+  border: 1px solid #de5c1b;
   padding: 10px 15px;
   border-radius: 5px;
-  background: #000;
+  background: #de5c1b;
   color: #e3e3e3;
   cursor: pointer;
+  margin: 5px;
 }
 .visited-box{
   margin: 20px;
@@ -51,7 +52,9 @@ h1 {
   border: 1px solid;
   border-radius: 10px;
 }
-
+.image{
+  width: 50%;
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

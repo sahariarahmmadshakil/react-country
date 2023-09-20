@@ -1,12 +1,12 @@
 import './App.css'
-import Countrys from './Components/Countrys'
+import Bootles from './Components/Bootles'
 
 function App() {
 
   return (
     <>
-      <h1>Simple Country</h1>
-      <Countrys></Countrys>
+      <h1>Simple Bootles</h1>
+     <Bootles></Bootles>
        
     </>
   )
